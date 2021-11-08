@@ -1,0 +1,16 @@
+---
+file:
+  /etc/rsyslog.d/stats.conf:
+    exists: true
+    mode: "0644"
+
+service:
+  rsyslog:
+    enabled: true
+    running: true
+
+#port:
+#  tcp:9107:
+#    listening: true
+#    ip:
+#      - '0.0.0.0'

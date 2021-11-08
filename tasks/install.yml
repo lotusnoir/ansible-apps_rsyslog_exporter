@@ -1,0 +1,39 @@
+---
+- name: Check for rsyslog_exporter binary
+  stat:
+    path: "{{ rsyslog_exporter_binary_path }}/rsyslog_exporter"
+  changed_when: false
+  register: rsyslog_exporter_bin
+
+- when: not rsyslog_exporter_bin.stat.exists or rsyslog_exporter_force_install|bool
+  block:
+    - name: Download rsyslog_exporter...
+      get_url:
+        url: '{{ rsyslog_exporter_url }}'
+        dest: /tmp
+        timeout: 120
+        mode: 0755
+
+    - name: Extract archive
+      unarchive:
+        src: "/tmp/{{ rsyslog_exporter_tgz }}"
+        dest: "/tmp"
+        remote_src: true
+
+    - name: "Copy rsyslog_exporter binary..."
+      copy:
+        src: '/tmp/rsyslog_exporter'
+        dest: '{{ rsyslog_exporter_binary_path }}/rsyslog_exporter'
+        remote_src: true
+        mode: '0755'
+
+    - name: "Special auth for redhat distro"
+      include_tasks: setup-RedHat.yml
+      when: ansible_os_family == "RedHat"
+
+- name: Create stats configuration for rsyslog
+  template:
+    src: stats.conf
+    dest: /etc/rsyslog.d/
+    mode: '0644'
+  notify: "restart rsyslog"
