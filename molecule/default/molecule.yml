@@ -4,14 +4,14 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: bionic_apps_rsyslog_exporter
+  - name: ubuntu18_apps_rsyslog_exporter
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:ubuntu18
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: focal_apps_rsyslog_exporter
+  - name: ubuntu20_apps_rsyslog_exporter
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:ubuntu20
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
@@ -20,14 +20,14 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - python3
-  - name: buster_apps_rsyslog_exporter
+  - name: debian10_apps_rsyslog_exporter
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:debian10
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: bullseye_apps_rsyslog_exporter
+  - name: debian11_apps_rsyslog_exporter
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:debian11
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
