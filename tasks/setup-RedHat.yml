@@ -1,18 +1,18 @@
 ---
-- name: install semanage
-  dnf:
+- name: "Install semanage"
+  ansible.builtin.dnf:
     name: policycoreutils-python-utils
     state: present
   when: ansible_distribution_major_version != "7"
 
-- name: install semanage
-  dnf:
+- name: "Install semanage"
+  ansible.builtin.dnf:
     name: policycoreutils-python
     state: present
   when: ansible_distribution_major_version == "7"
 
 - name: "Allow python execution and openning port"
-  shell: |
+  ansible.builtin.shell: |
     semanage port -a -t syslogd_port_t -p tcp "{{ rsyslog_exporter_port }}"
   failed_when: false
   changed_when: false

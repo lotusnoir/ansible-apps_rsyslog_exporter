@@ -9,11 +9,22 @@ platforms:
     image: lotusnoir/ansible_molecule_test_images:ubuntu18
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
+    capabilities: ['NET_ADMIN']
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: ubuntu20-apps-rsyslog-exporter
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:ubuntu20
+    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+    privileged: true
+    capabilities: ['NET_ADMIN']
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    groups:
+      - python3
+  - name: ubuntu22-apps-rsyslog-exporter
+    pre_build_image: true
+    image: lotusnoir/ansible_molecule_test_images:ubuntu22
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
@@ -41,18 +52,18 @@ platforms:
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: centos8-apps-rsyslog-exporter
+  - name: rocky8-apps-rsyslog-exporter
     pre_build_image: true
-    image: lotusnoir/ansible_molecule_test_images:centos8
+    image: lotusnoir/ansible_molecule_test_images:rocky8
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - python3
-  - name: rocky8-apps-rsyslog-exporter
+  - name: oraclelinux8-apps-rsyslog-exporter
     pre_build_image: true
-    image: lotusnoir/ansible_molecule_test_images:rocky8
+    image: lotusnoir/ansible_molecule_test_images:oraclelinux8
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
