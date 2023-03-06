@@ -37,3 +37,6 @@ You can find a grafana dashboard [here](https://grafana.com/grafana/dashboards/1
 
 This project is licensed under Apache License. See [LICENSE](/LICENSE) for more details.
 
+## Author Information
+
+- [Philippe LEAL](https://github.com/lotusnoir)
