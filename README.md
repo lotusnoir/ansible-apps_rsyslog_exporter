@@ -10,7 +10,6 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
 
 Install and configure [rsyslog_exporter](https://github.com/momorientes/rsyslog_exporter) to expose metrics for prometheus
-
 ## Requirements
 
 lotusnoir.apps_rsyslog
