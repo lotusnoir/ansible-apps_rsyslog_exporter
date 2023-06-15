@@ -33,15 +33,6 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - python3
-  - name: apps-rsyslog-exporter-ubuntu22
-    pre_build_image: true
-    image: lotusnoir/ansible_molecule_test_images:ubuntu22
-    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
-    privileged: true
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    groups:
-      - python3
   - name: apps-rsyslog-exporter-debian10
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:debian10
@@ -52,6 +43,15 @@ platforms:
   - name: apps-rsyslog-exporter-debian11
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:debian11
+    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    groups:
+      - python3
+  - name: apps-rsyslog-exporter-debian12
+    pre_build_image: true
+    image: lotusnoir/ansible_molecule_test_images:debian12
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
@@ -111,6 +111,8 @@ provisioner:
         ansible_python_interpreter: /usr/bin/python3
     host_vars:
       bullseye:
+        ansible_python_interpreter: "/usr/bin/python3.9"
+      bookworm:
         ansible_python_interpreter: "/usr/bin/python3.9"
 
 verifier:
