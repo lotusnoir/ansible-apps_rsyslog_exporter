@@ -33,7 +33,7 @@
         mode: '0755'
 
     - name: "Special auth for redhat distro"
-      ansible.builtin.include_tasks: setup-RedHat.yml
+      ansible.builtin.include_tasks: "setup-{{ ansible_os_family | lower }}.yml"
       when: ansible_os_family == "RedHat"
 
 - name: "Create stats configuration for rsyslog"
