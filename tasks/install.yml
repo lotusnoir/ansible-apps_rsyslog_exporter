@@ -18,6 +18,10 @@
     - name: "Download requirements"
       ansible.builtin.package:
         name: tar
+      register: pkg_result
+      retries: 12
+      delay: 10
+      until: pkg_result is success
 
     - name: "Extract archive"
       ansible.builtin.unarchive:
