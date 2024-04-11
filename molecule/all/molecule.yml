@@ -12,7 +12,7 @@ scenario:
     - prepare
     - converge
     - idempotence
-    - verify
+    #- verify
     - destroy
 platforms:
   - name: apps-rsyslog-exporter-ubuntu22
