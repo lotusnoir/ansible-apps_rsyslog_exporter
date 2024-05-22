@@ -26,6 +26,7 @@ galaxy_info:
     - name: "RedHat"
       versions:
         - "8"
+        - "9"
 
   galaxy_tags:
     - prometheus
