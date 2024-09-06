@@ -13,7 +13,7 @@
         url: '{{ rsyslog_exporter_url }}'
         dest: /tmp
         timeout: 120
-        mode: 0755
+        mode: '0755'
 
     - name: "Download requirements"
       ansible.builtin.package:
