@@ -15,13 +15,6 @@ scenario:
     # - verify
     - destroy
 platforms:
-  - name: apps-rsyslog-exporter-ubuntu20
-    pre_build_image: true
-    image: lotusnoir/ansible_molecule_test_images:ubuntu20
-    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
-    capabilities: ['NET_ADMIN']
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
   - name: apps-rsyslog-exporter-ubuntu22
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:ubuntu22
@@ -30,6 +23,19 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     groups:
       - python3
+  - name: apps-rsyslog-exporter-ubuntu20
+    pre_build_image: true
+    image: lotusnoir/ansible_molecule_test_images:ubuntu20
+    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+    capabilities: ['NET_ADMIN']
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+  - name: apps-rsyslog-exporter-debian10
+    pre_build_image: true
+    image: lotusnoir/ansible_molecule_test_images:debian10
+    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
   - name: apps-rsyslog-exporter-debian11
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:debian11
@@ -41,6 +47,22 @@ platforms:
   - name: apps-rsyslog-exporter-debian12
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:debian12
+    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - python3
+  - name: apps-rsyslog-exporter-rocky8
+    pre_build_image: true
+    image: lotusnoir/ansible_molecule_test_images:rocky8
+    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - python3
+  - name: apps-rsyslog-exporter-oraclelinux8
+    pre_build_image: true
+    image: lotusnoir/ansible_molecule_test_images:oraclelinux8
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
