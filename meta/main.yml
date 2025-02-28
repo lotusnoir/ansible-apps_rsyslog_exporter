@@ -4,13 +4,14 @@ galaxy_info:
   role_name: apps_rsyslog_exporter
   description: "Install and configure [rsyslog_exporter](https://github.com/momorientes/rsyslog_exporter) to expose metrics for prometheus"
   license: "Apache License, Version 2.0"
-  min_ansible_version: 2.8
+  min_ansible_version: "2.8"
 
   platforms:
     - name: "Ubuntu"
       versions:
-        - "jammy"
+        - "noble"
         - "focal"
+        - "jammy"
     - name: "Debian"
       versions:
         - "buster"

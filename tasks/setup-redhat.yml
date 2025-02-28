@@ -7,23 +7,22 @@
   retries: 12
   delay: 10
   until: pkg_result is success
-  when: ansible_distribution_major_version != "7"
+#  when: ansible_distribution_major_version != "7"
 
-- name: "Install semanage"
-  ansible.builtin.yum:
-    name: policycoreutils-python
-    state: present
-  register: pkg_result
-  retries: 12
-  delay: 10
-  until: pkg_result is success
-  when: ansible_distribution_major_version == "7"
+#- name: "Install semanage"
+#  ansible.builtin.yum:
+#    name: policycoreutils-python
+#    state: present
+#  register: pkg_result
+#  retries: 12
+#  delay: 10
+#  until: pkg_result is success
+#  when: ansible_distribution_major_version == "7"
 
 - name: "Allow python execution and openning port"
   ansible.builtin.shell: |
     semanage port -a -t syslogd_port_t -p tcp "{{ rsyslog_exporter_port }}"
   failed_when: false
   changed_when: false
-
 #ausearch -c 'python' --raw | audit2allow -M my-python
 #semodule -i my-python.pp

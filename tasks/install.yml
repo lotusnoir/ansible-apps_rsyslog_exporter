@@ -40,6 +40,12 @@
       ansible.builtin.include_tasks: "setup-{{ ansible_os_family | lower }}.yml"
       when: ansible_os_family == "RedHat"
 
+- name: "Create /etc/rsyslog.d/"
+  ansible.builtin.file:
+    path: "/etc/rsyslog.d/"
+    mode: '0755'
+    state: directory
+
 - name: "Create stats configuration for rsyslog"
   ansible.builtin.template:
     src: stats.conf.j2
