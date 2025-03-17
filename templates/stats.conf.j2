@@ -14,6 +14,6 @@ ruleset(name="stats") {
   action(
     type="omprog"
     name="stats_exporter"
-    binary="{{ rsyslog_exporter_binary_path }}rsyslog_exporter -web.listen-address :{{ rsyslog_exporter_port }}"
+    binary="{{ rsyslog_exporter_binary_path }}rsyslog_exporter -web.listen-address :{{ rsyslog_exporter_port }} -web.telemetry-path={{ rsyslog_exporter_telemetry_path }}"
   )
 }

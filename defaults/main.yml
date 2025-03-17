@@ -1,10 +1,11 @@
 ---
 ### Installation
-rsyslog_exporter_version: "0.1.1"
+rsyslog_exporter_version: "1.1.0"
 rsyslog_exporter_tgz: "rsyslog_exporter_{{ rsyslog_exporter_version }}_Linux_x86_64.tar.gz"
-rsyslog_exporter_url: "https://github.com/lotusnoir/rsyslog_exporter/releases/download/{{ rsyslog_exporter_version }}/{{ rsyslog_exporter_tgz }}"
+rsyslog_exporter_url: "https://github.com/prometheus-community/rsyslog_exporter/releases/download/v{{ rsyslog_exporter_version }}/{{ rsyslog_exporter_tgz }}"
 rsyslog_exporter_force_install: true
 
 ### Configuration
 rsyslog_exporter_port: 9107
+rsyslog_exporter_telemetry_path: "/metrics"
 rsyslog_exporter_binary_path: "/usr/local/bin/"
