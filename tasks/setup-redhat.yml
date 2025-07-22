@@ -3,13 +3,13 @@
   ansible.builtin.dnf:
     name: policycoreutils-python-utils
     state: present
-  register: pkg_result
+  register: __pkg_result
   retries: 12
   delay: 10
-  until: pkg_result is success
+  until: __pkg_result is success
 
 - name: "Allow python execution and openning port"
   ansible.builtin.shell: |
-    semanage port -a -t syslogd_port_t -p tcp "{{ rsyslog_exporter_port }}"
+    semanage port -a -t syslogd_port_t -p tcp "{{ rsyslog_exporter_web_port }}"
   failed_when: false
   changed_when: false

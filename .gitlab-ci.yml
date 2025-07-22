@@ -42,11 +42,6 @@ molecule_rocky8:
   image: lotusnoir/molecule_play:v2.0.0
   script:
     - MOLECULE_DISTRIB=rocky8 molecule test
-molecule_ubuntu22:
-  stage: molecule
-  image: lotusnoir/molecule_play:latest
-  script:
-    - MOLECULE_DISTRIB=ubuntu22 molecule test
 molecule_ubuntu20:
   stage: molecule
   image: lotusnoir/molecule_play:latest
@@ -54,6 +49,11 @@ molecule_ubuntu20:
     MOLECULE_DOCKER_COMMAND: "--cap-add NET_ADMIN"
   script:
     - MOLECULE_DISTRIB=ubuntu20 molecule test
+molecule_ubuntu22:
+  stage: molecule
+  image: lotusnoir/molecule_play:latest
+  script:
+    - MOLECULE_DISTRIB=ubuntu22 molecule test
 molecule_ubuntu24:
   stage: molecule
   image: lotusnoir/molecule_play:latest
@@ -73,8 +73,8 @@ changelog:
     - molecule_oraclelinux8
     - molecule_oraclelinux9
     - molecule_rocky8
-    - molecule_ubuntu22
     - molecule_ubuntu20
+    - molecule_ubuntu22
     - molecule_ubuntu24
   artifacts:
     paths:

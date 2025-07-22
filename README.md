@@ -22,6 +22,7 @@
 ## Description
 
 Install and configure [rsyslog_exporter](https://github.com/momorientes/rsyslog_exporter) to expose metrics for prometheus
+
 ## Requirements
 
 ['lotusnoir.apps_rsyslog']
