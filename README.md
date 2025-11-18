@@ -3,8 +3,7 @@
 [![Galaxy Role](https://img.shields.io/badge/galaxy-apps_rsyslog_exporter-purple?style=flat)](https://galaxy.ansible.com/lotusnoir/apps_rsyslog_exporter)
 [![Version](https://img.shields.io/github/release/lotusnoir/ansible-apps_rsyslog_exporter.svg)](https://github.com/lotusnoir/ansible-apps_rsyslog_exporter/releases/latest)
 [![GitHub repo size](https://img.shields.io/github/repo-size/lotusnoir/ansible-apps_rsyslog_exporter?color=orange&style=flat)](https://galaxy.ansible.com/lotusnoir/apps_rsyslog_exporter)
-[![downloads](https://img.shields.io/ansible/role/d/56845)](https://galaxy.ansible.com/lotusnoir/apps_rsyslog_exporter)
-[![Ansible Quality Score](https://img.shields.io/ansible/quality/56845)](https://galaxy.ansible.com/lotusnoir/apps_rsyslog_exporter)
+[![downloads](https://img.shields.io/ansible/role/d/lotusnoir/apps_rsyslog_exporter)](https://galaxy.ansible.com/lotusnoir/apps_rsyslog_exporter)
 [![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -25,7 +24,7 @@ Install and configure [rsyslog_exporter](https://github.com/momorientes/rsyslog_
 
 ## Requirements
 
-['lotusnoir.apps_rsyslog']
+- lotusnoir.apps_rsyslog
 
 ## Role variables
 
