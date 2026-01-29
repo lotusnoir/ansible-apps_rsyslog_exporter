@@ -20,5 +20,5 @@ rsyslog_exporter_temp_dir: "/tmp"
 rsyslog_exporter_local_files: "~/Downloads/shared-files/{{ role_path | basename }}/{{ rsyslog_exporter_pkg_name }}"
 
 ### Configuration
-rsyslog_exporter_web_port: 9107
+rsyslog_exporter_web_port: 9105
 rsyslog_exporter_telemetry_path: "/metrics"
