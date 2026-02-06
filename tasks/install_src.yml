@@ -26,7 +26,11 @@
 #     - rsyslog_exporter_install_origin == "internet"
 
 - name: "Install tasks"
-  # when: (not __installed_bin.stat.exists) or (__installed_version is defined and rsyslog_exporter_version not in __installed_version.stdout) or rsyslog_exporter_install_force
+  # when:
+  #  - not __installed_bin.stat.exists
+  #  - __installed_version is not defined
+  #    or rsyslog_exporter_version not in __installed_version.stdout
+  #    or rsyslog_exporter_install_force
   when: (not __installed_bin.stat.exists) or rsyslog_exporter_install_force
   block:
     - name: "Create dirs"
@@ -102,5 +106,5 @@
         mode: "0755"
 
     - name: "Special auth for redhat distro"
-      ansible.builtin.include_tasks: "setup-{{ ansible_os_family | lower }}.yml"
-      when: ansible_os_family == "RedHat"
+      ansible.builtin.include_tasks: "setup-{{ ansible_facts.os_family | lower }}.yml"
+      when: ansible_facts.os_family == "RedHat"
